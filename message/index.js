@@ -48,9 +48,11 @@ auth: state,
 browser: ["Ubuntu", "Chrome", "20.0.04"]
 });
 if (usePairingCode && !zyn.authState.creds.registered) {
-const phoneNumber = await question(chalk.cyan.bold('Enter Your Number\nNumber : '));
-const code = await zyn.requestPairingCode(phoneNumber.trim());
-console.log(chalk.green.bold(`Code : ${code}`));
+  const phoneNumber = await question(chalk.cyan.bold('Enter Your Number\nNumber : '));
+  const code = await zyn.requestPairingCode(phoneNumber.trim());
+  console.log(chalk.green.bold(`Code Pairing : ${code}`));
+} else if (!usePairingCode) {
+  console.log(chalk.yellow.bold("Scan QR di bawah untuk login!"));
 }
 
 store.bind(zyn.ev);
