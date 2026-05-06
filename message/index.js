@@ -48,7 +48,8 @@ auth: state,
 browser: ["Ubuntu", "Chrome", "20.0.04"]
 });
 if (usePairingCode && !zyn.authState.creds.registered) {
-const code = await zyn.requestPairingCode("6287846822074".trim());
+const phoneNumber = "6287846822074"
+const code = await zyn.requestPairingCode(phoneNumber.trim());
 console.log(chalk.green.bold(`Code : ${code}`));
 }
 

