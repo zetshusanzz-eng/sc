@@ -31,7 +31,7 @@ const { Boom } = require('@hapi/boom');
 const { color } = require('./lib/color');
 const { smsg, sendGmail, formatSize, isUrl, generateMessageTag, getBuffer, getSizeMedia, runtime, fetchJson, sleep } = require('./lib/myfunction');
 
-const usePairingCode = true;
+const usePairingCode = false;
 const question = (text) => {
 const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
 return new Promise((resolve) => { rl.question(text, resolve) });
@@ -48,7 +48,7 @@ auth: state,
 browser: ["Ubuntu", "Chrome", "20.0.04"]
 });
 if (usePairingCode && !zyn.authState.creds.registered) {
-const phoneNumber = "6287846822074"
+const phoneNumber = await question(chalk.cyan.bold('Enter Your Number\nNumber : '));
 const code = await zyn.requestPairingCode(phoneNumber.trim());
 console.log(chalk.green.bold(`Code : ${code}`));
 }
